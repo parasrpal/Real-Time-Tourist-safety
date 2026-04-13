@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourist Protection System</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+<header>
+            <h1><i class="fas fa-shield-alt"></i> Tourist Protection System</h1>
+            <button id="loginBtn" class="btn btn-secondary">Login / Register</button>
+            <div class="status">
+                <span id="locationStatus">Location: Not tracking</span>
+                <span id="zoneStatus">Zone: Safe</span>
+                <span id="userStatus">Guest Mode</span>
+            </div>
+        </header>
+
+        <!-- Login Modal -->
+        <div id="authModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modalTitle">Login</h2>
+                <form id="authForm">
+                    <input type="email" id="email" placeholder="Email" required>
+                    <input type="password" id="password" placeholder="Password" required>
+                    <input type="text" id="name" placeholder="Full Name">
+                    <input type="tel" id="phone" placeholder="Phone">
+                    <div id="emergencyContacts">
+                        <label>Emergency Contact 1:</label>
+                        <input type="text" id="contactName1" placeholder="Name">
+                        <input type="tel" id="contactPhone1" placeholder="Phone">
+                    </div>
+                    <button type="submit" id="submitAuth">Login</button>
+                    <button type="button" id="toggleAuth">Register instead</button>
+                </form>
+            </div>
+        </div>
+
+        <main>
+            <div id="map"></div>
+            
+            <div class="controls">
+                <button id="startTracking" class="btn btn-primary">
+                    <i class="fas fa-location-arrow"></i> Start Tracking
+                </button>
+                <button id="sosBtn" class="btn btn-danger" disabled>
+                    <i class="fas fa-exclamation-triangle"></i> SOS Emergency
+                </button>
+                <div class="lang-switcher">
+                    <label>Language:</label>
+                    <select id="langSelect">
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                        <option value="fr">Français</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="chat-section">
+                <div class="chat-header">
+                    <i class="fas fa-comments"></i> AI Assistant
+                </div>
+                <div id="chatMessages"></div>
+                <input type="text" id="chatInput" placeholder="Ask for help...">
+                <button id="sendChat"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </main>
+
+        <footer>
+            <p>Stay safe! System active.</p>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
